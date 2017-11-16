@@ -10,7 +10,7 @@ const  MaxValue=100;Shift=50; N=2000;
 
 type TArray=array[1..N] of Integer;
 
-   var shella,sheika,main: tarray; k,i,p,s1,s: Integer;
+   var shella,sheika,main: TArray; k,i,p: Integer;
    SheikerComparisons,SheikerPermutations,ShellComparisons,ShellPermutations: Integer;
 
 
@@ -30,7 +30,7 @@ type TArray=array[1..N] of Integer;
     end;
 
     procedure ShakerSort(var Size,Sravn,perest: integer);
-     var  l,r,kek,kek1,j: integer;
+     var  l,r,kek,kek1,s,s1,j: integer;
    begin
    L:=2; perest:=0; sravn:=0;
    R:=size;
@@ -104,10 +104,11 @@ A12[j]:=tmp;
 dec(j); 
 end; 
 end;
-procedure CreateTableRow(const k:integer; rtype:string; var SC, SP, BC, BP: Integer);
+
+procedure CreateTableRow(const k:integer; rtype:string; var SheC, SheP, ShC, ShP: Integer);
 begin
   Writeln('|',k:4,' el. |', '':15,'|', '':15,'|', '':15,'|', '':15,'|');
-  Writeln('|',rtype:9,'|',SC:10,'':5, '|',SP:10,'':5, '|',BC:10,'':5, '|',BP:10,'':5, '|');
+  Writeln('|',rtype:9,'|',SheC:10,'':5, '|',SheP:10,'':5, '|',ShC:10,'':5, '|',ShP:10,'':5, '|');
   Writeln('+---------+---------------+---------------+---------------+---------------+');
 end;
 
@@ -124,7 +125,7 @@ begin
   Writeln('+---------+---------------+---------------+---------------+---------------+');
      for p:=1 to 3 do
   begin
-    Writeln;
+
     case p of
       1 : k := 10;
       2 : k := 100;
@@ -149,7 +150,7 @@ begin
     ShakerSort(k,SheikerComparisons,SheikerPermutations);
     ShellSort(k,ShellComparisons,ShellPermutations);
     CreateTableRow(k, 'reverse.' , SheikerComparisons,SheikerPermutations,ShellComparisons,ShellPermutations);
-    Writeln;
+
   end;
   Readln;
 end.
